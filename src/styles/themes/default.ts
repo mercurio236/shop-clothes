@@ -20,12 +20,14 @@ export const defaultTheme = {
     'white-25':'#FFFFFF40',
     'white-10':'#FFFFFF1A',
     'white-5':'#FFFFFF0D',
-    
+
     'dark':'#000000',
     'dark-75':'#000000BF',
     'dark-50':'#00000080',
     'dark-25':'#00000040',
     'dark-10':'#0000001A',
     'dark-5':'#0000000D',
-    'stroke':'#0A183D'
+
+    'stroke':'#0A183D',
+    'stroke-gray':'#E3E3E3'
 }
