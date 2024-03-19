@@ -39,6 +39,7 @@ export const TextMenu = styled.p`
 export const BagContent = styled.div`
   display: flex;
   color: ${(props) => props.theme['black']};
+  transition: 0.3s;
   &:hover {
     color: ${(props) => props.theme['primary']};
   }
