@@ -1,4 +1,5 @@
 import { Button } from '../../../components/Button'
+import { Card } from '../../../components/Card'
 import { ContainerButton, ContainerHome, ContentHome } from './styles'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,14 +10,11 @@ export function Home() {
         <Button title="Filter" variant="secundary" icon={faFilter} />
       </ContainerButton>
       <ContentHome>
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
-        <div style={{ background: '#000', width: 312, height: 478 }} />
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
       </ContentHome>
     </ContainerHome>
   )
