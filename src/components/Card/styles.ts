@@ -3,21 +3,29 @@ import styled from 'styled-components'
 export const ContainerCard = styled.main`
   width: 19.5rem;
   height: 34rem;
-`
+  display: flex;
+  flex-direction: column;
+
+  `
 
 export const ImgProduct = styled.img`
   object-fit: cover;
-`
+  width: 312px;
+  height: 400px;
+  
+  `
 
 export const ActionCardContent = styled.div`
-  flex: 1;
   background: ${(props) => props.theme['black']};
+  
   display: flex;
   justify-content: flex-end;
-`
+  //margin-top: -10px;
+  `
 
 export const ButtonAction = styled.button`
   all: unset;
+  
   color: ${(props) => props.theme['white']};
   display: flex;
   gap: 8px;
@@ -36,17 +44,21 @@ export const ButtonAction = styled.button`
 `
 
 export const ContentCard = styled.div`
+
   display: flex;
   flex-direction: column;
-  p {
-    margin-top: 20px;
+  margin-top: 15px;
+  span {
+   font-weight: 600;
   }
 `
 
 export const FooterCard = styled.div`
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 15px;
 
   p {
     &:first-child {

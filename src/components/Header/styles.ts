@@ -1,7 +1,6 @@
 import { styled } from 'styled-components'
 
 export const Container = styled.div`
-  flex: 1;
   background: ${(props) => props.theme['black-5']};
   height: 186px;
   padding: 2rem 12rem 2rem 12rem;
