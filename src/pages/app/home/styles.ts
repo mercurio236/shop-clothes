@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const ContainerHome = styled.main`
-  padding: 0 12rem 0 12rem;
-  
-  
+  display: block;
+  margin: 0 4vw 0 4vw;
 `
 
 export const ContainerGrid = styled.div`
@@ -21,7 +20,8 @@ export const ContentHome = styled.div`
 
 export const ContainerButton = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
+  
   margin-top: 8rem;
   margin-bottom: 30px;
 `
