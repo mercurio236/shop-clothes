@@ -39,7 +39,7 @@ export function Product() {
         <ContainerInfo>
           <p>{product?.title}</p>
           <span>
-            {product.price.toLocaleString('en-US', {
+            {product.price?.toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD',
             })}

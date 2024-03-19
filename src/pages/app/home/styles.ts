@@ -9,6 +9,7 @@ export const ContainerGrid = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100%;
 `
 
 export const ContentHome = styled.div`

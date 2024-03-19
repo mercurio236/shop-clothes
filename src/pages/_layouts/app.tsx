@@ -6,10 +6,10 @@ export function AppLayout() {
   return (
     <div>
       <Header />
-      <div>
+      <div style={{ minHeight: '68vh' }}>
         <Outlet />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
