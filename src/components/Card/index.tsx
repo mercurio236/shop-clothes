@@ -9,17 +9,19 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { DTOProducts } from '../../dtos/dtos-products'
+import { useNavigate } from 'react-router-dom'
 
 interface PropsCard {
   data: DTOProducts
 }
 
 export function Card({ data }: PropsCard) {
+  const navigation = useNavigate()
   return (
     <ContainerCard key={data.id}>
       <ImgProduct src={data.category?.image} />
       <ActionCardContent>
-        <ButtonAction>
+        <ButtonAction onClick={() => navigation(`/product/${data.id}`)}>
           <FontAwesomeIcon icon={faBagShopping} fontSize={20} />
           <p>Comprar</p>
         </ButtonAction>
@@ -29,7 +31,7 @@ export function Card({ data }: PropsCard) {
         <FooterCard>
           <p>{data.category?.name}</p>
           <p>
-            {(data.price).toLocaleString('en-US', {
+            {data.price.toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD',
             })}

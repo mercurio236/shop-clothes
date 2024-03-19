@@ -14,7 +14,7 @@ export function Button({ variant = 'primary', title, icon }: ButtonProps) {
   return (
     <ButtonContainer variant={variant}>
       <>
-        {title}
+        <p>{title}</p>
         <FontAwesomeIcon icon={icon as IconProp} />
       </>
     </ButtonContainer>

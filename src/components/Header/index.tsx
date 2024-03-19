@@ -18,7 +18,9 @@ export function Header() {
     <Container>
       <ContentLogo>
         <FontAwesomeIcon icon={faSearch} width={50} height={50} />
-        <img src={LogoIcon} />
+        <NavLink to="/">
+          <img src={LogoIcon} />
+        </NavLink>
         <NavLink to="#">
           <BagContent>
             <FontAwesomeIcon icon={faBagShopping} width={50} height={50} />
