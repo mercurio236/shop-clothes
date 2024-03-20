@@ -19,6 +19,7 @@ export function Home() {
     try {
       const response = await api.get('/products')
       setProducts(response.data)
+      //console.log(response.data)
     } catch (error) {
       console.log(error)
     }
@@ -31,7 +32,7 @@ export function Home() {
   return (
     <ContainerHome>
       <ContainerButton>
-        <Button title="Filter" variant="secundary" icon={faFilter} />
+        <Button onClick={() => console.log('aaa')} title="Filter" variant="secundary" icon={faFilter} />
       </ContainerButton>
       <ContainerGrid>
         <ContentHome>

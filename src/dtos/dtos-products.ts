@@ -6,7 +6,9 @@ export interface DTOProducts {
     images: string[]
     creationAt: string
     updatedAt: string
+    quantity: number
     category: Category
+
   }
   
   export interface Category {

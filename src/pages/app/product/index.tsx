@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { api } from '../../../lib/axios'
 import {
   ContainerInfo,
@@ -14,6 +14,7 @@ import { DTOProducts } from '../../../dtos/dtos-products'
 import { Button } from '../../../components/Button'
 
 export function Product() {
+  const navigate = useNavigate()
   const params = useParams()
   const { id } = params
 
@@ -28,6 +29,12 @@ export function Product() {
     }
   }
 
+  function handleAddProductInTheCart(productId: number) {
+    if(productId){
+      navigate(`/cart/${productId}`)
+    }
+  }
+
   useEffect(() => {
     fetchProuct()
   }, [id])
@@ -39,13 +46,17 @@ export function Product() {
         <ContainerInfo>
           <p>{product?.title}</p>
           <span>
-            {product.price?.toLocaleString('en-US', {
+            {product.price?.toLocaleString('pt-BR', {
               style: 'currency',
-              currency: 'USD',
+              currency: 'BRL',
             })}
           </span>
           <InformationProduct>{product?.description}</InformationProduct>
-          <Button title="Shop Now" icon={faBagShopping} />
+          <Button
+            onClick={() => handleAddProductInTheCart(product.id)}
+            title="Shop Now"
+            icon={faBagShopping}
+          />
         </ContainerInfo>
       </ContentProduct>
     </ContainerProduct>

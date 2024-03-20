@@ -21,7 +21,7 @@ export function Header() {
         <NavLink to="/">
           <img src={LogoIcon} />
         </NavLink>
-        <NavLink to="#">
+        <NavLink to="/cart">
           <BagContent>
             <FontAwesomeIcon icon={faBagShopping} width={50} height={50} />
             <p>Cart</p>

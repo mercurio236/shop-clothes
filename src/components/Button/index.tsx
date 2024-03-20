@@ -4,15 +4,15 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { ButtonHTMLAttributes } from 'react'
 
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLElement>{
+type ButtonProps = ButtonHTMLAttributes<HTMLElement> &{
   variant?: ButtonVariant
   title?: string
   icon?: IconProp
 }
 
-export function Button({ variant = 'primary', title, icon }: ButtonProps) {
+export function Button({ variant = 'primary', title, icon, ...rest }: ButtonProps) {
   return (
-    <ButtonContainer variant={variant}>
+    <ButtonContainer variant={variant} {...rest}>
       <>
         <p>{title}</p>
         <FontAwesomeIcon icon={icon as IconProp} />

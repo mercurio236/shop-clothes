@@ -8,7 +8,6 @@ export const ContainerProduct = styled.main`
 export const ContentProduct = styled.div`
   display: flex;
   gap: 50px;
-  
 `
 
 export const ImageProduct = styled.img`
@@ -17,11 +16,10 @@ export const ImageProduct = styled.img`
   height: 407px;
 `
 export const ContainerInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 30px;
-   
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 
   p {
     font-size: 37px;

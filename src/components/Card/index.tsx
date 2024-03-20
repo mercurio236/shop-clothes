@@ -31,9 +31,9 @@ export function Card({ data }: PropsCard) {
         <FooterCard>
           <p>{data.category?.name}</p>
           <p>
-            {data.price.toLocaleString('en-US', {
+            {data.price.toLocaleString('pt-BR', {
               style: 'currency',
-              currency: 'USD',
+              currency: 'BRL',
             })}
           </p>
         </FooterCard>
