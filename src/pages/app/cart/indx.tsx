@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { useProductCart } from '../../../context/cart'
 import { api } from '../../../lib/axios'
 import { MyCart } from './components/MyCart'
+import { CartEmpty } from './components/CartEmpty'
 
 export function Cart() {
   const { id } = useParams()
@@ -33,6 +34,7 @@ export function Cart() {
   return (
     <ContainerCart>
       <TitleCart>Meu Carrinho</TitleCart>
+      {productsInCart.length <= 0 && <CartEmpty/>}
       {productsInCart &&
         productsInCart.map((product) => {
           return <MyCart key={product.id} data={product} />
