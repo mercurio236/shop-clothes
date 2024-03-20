@@ -1,12 +1,20 @@
 import { useParams } from 'react-router-dom'
-import { ContainerCart } from './styles'
+import {
+  ContainerCart,
+  ContainerValueTotal,
+  TitleCart,
+  Total,
+  ValueTotal,
+} from './styles'
 import { useEffect } from 'react'
 import { useProductCart } from '../../../context/cart'
 import { api } from '../../../lib/axios'
+import { MyCart } from './components/MyCart'
 
 export function Cart() {
   const { id } = useParams()
-  const { addToCart } = useProductCart()
+  const { addToCart, productsInCart, getCartTotal } = useProductCart()
+  const TOTAL = getCartTotal()
 
   async function fetchGetProduct(productId: string) {
     try {
@@ -24,7 +32,20 @@ export function Cart() {
 
   return (
     <ContainerCart>
-      <img src="" />
+      <TitleCart>Meu Carrinho</TitleCart>
+      {productsInCart &&
+        productsInCart.map((product) => {
+          return <MyCart key={product.id} data={product} />
+        })}
+      <ContainerValueTotal>
+        <Total>Total</Total>
+        <ValueTotal>
+          {Number(TOTAL).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </ValueTotal>
+      </ContainerValueTotal>
     </ContainerCart>
   )
 }

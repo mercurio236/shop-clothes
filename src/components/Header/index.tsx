@@ -8,12 +8,15 @@ import {
 } from './styles'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import LogoIcon from '../../assets/logo.svg'
 import { NavLink } from '../NavLink'
+import { BadgeBag } from '../BadgeBag'
+import { useProductCart } from '../../context/cart'
 
 export function Header() {
+  const { productsInCart } = useProductCart()
   return (
     <Container>
       <ContentLogo>
@@ -23,7 +26,7 @@ export function Header() {
         </NavLink>
         <NavLink to="/cart">
           <BagContent>
-            <FontAwesomeIcon icon={faBagShopping} width={50} height={50} />
+            <BadgeBag cartItem={productsInCart.length >= 1} />
             <p>Cart</p>
           </BagContent>
         </NavLink>

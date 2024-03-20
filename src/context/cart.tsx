@@ -5,6 +5,7 @@ interface CartContextProps {
   productsInCart: DTOProducts[]
   addToCart: (product: DTOProducts) => void
   removeToCart: (product: DTOProducts) => void
+  deleteToCart: (id: number) => void
   getCartTotal: () => void
 }
 
@@ -26,7 +27,7 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       setProductsInCard(
         productsInCart.map((productItem) =>
           productItem.id === product.id
-            ? { ...productItem, quantity: productsInCart.length + 1 }
+            ? { ...productItem, quantity: productItem.quantity + 1 }
             : productItem
         )
       )
@@ -37,14 +38,14 @@ const CartProvider: React.FC<Props> = ({ children }) => {
 
   function removeToCart(product: DTOProducts) {
     const isProductIncart = productsInCart.find(
-      (productInCart) => productInCart.id !== product.id
+      (productInCart) => productInCart.id === product.id
     )
 
     if (isProductIncart) {
       setProductsInCard(
         productsInCart.map((productItem) =>
           productItem.id === product.id
-            ? { ...productItem, quantity: productsInCart.length - 1 }
+            ? { ...productItem, quantity: productItem.quantity - 1 }
             : productItem
         )
       )
@@ -58,6 +59,11 @@ const CartProvider: React.FC<Props> = ({ children }) => {
     )
   }
 
+  function deleteToCart(id: number) {
+    const newList = productsInCart.filter((idProduct) => idProduct.id !== id)
+    return setProductsInCard(newList)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -65,6 +71,7 @@ const CartProvider: React.FC<Props> = ({ children }) => {
         getCartTotal,
         removeToCart,
         productsInCart,
+        deleteToCart,
       }}
     >
       {children}
