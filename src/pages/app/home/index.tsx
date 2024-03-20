@@ -11,18 +11,33 @@ import {
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { api } from '../../../lib/axios'
 import { DTOProducts } from '../../../dtos/dtos-products'
+import { FilterSchemaProps, Modal } from '../../../components/Modal'
 
 export function Home() {
   const [products, setProducts] = useState<DTOProducts[]>([])
+  const [showModal, setShowModal] = useState(false)
 
-  async function fetchProducts() {
+  async function fetchProducts(data?: FilterSchemaProps) {
     try {
-      const response = await api.get('/products')
+      if (data?.title) {
+        const response = await api.get(`/products/?title=${data?.title}`)
+        setShowModal(false)
+        return setProducts(response.data)
+      }
+      if (data?.price) {
+        const response = await api.get(`/products/price=${data.price}`)
+        setShowModal(false)
+        return setProducts(response.data)
+      }
+      const response = await api.get(`/products`)
       setProducts(response.data)
-      //console.log(response.data)
     } catch (error) {
       console.log(error)
     }
+  }
+
+  function handleOpenModal() {
+    setShowModal(true)
   }
 
   useEffect(() => {
@@ -32,7 +47,12 @@ export function Home() {
   return (
     <ContainerHome>
       <ContainerButton>
-        <Button onClick={() => console.log('aaa')} title="Filter" variant="secundary" icon={faFilter} />
+        <Button
+          onClick={handleOpenModal}
+          title="Filter"
+          variant="secundary"
+          icon={faFilter}
+        />
       </ContainerButton>
       <ContainerGrid>
         <ContentHome>
@@ -42,6 +62,12 @@ export function Home() {
             })}
         </ContentHome>
       </ContainerGrid>
+      <Modal
+        handleCloseBackground={() => setShowModal(false)}
+        openModal={showModal}
+        filter={(e) => fetchProducts(e)}
+        clear={fetchProducts}
+      />
     </ContainerHome>
   )
 }
